@@ -1,4 +1,4 @@
-# Lungo versione 0.2.105
+# Lungo versione 0.2.106
 from tkinter import *
 from tkinter.simpledialog import askstring
 import time
