@@ -40,22 +40,36 @@ def correggi(event=None):
     rigacompleta=""
     controllore=0
     progressivo=0
+    x=0
+    y=0
     codice=testo.get(0.0,END)
     riga=codice.split("\n")
+    testo.tag_config("uno",foreground="violet")
+    testo.tag_config("due",foreground="blue")
+    testo.tag_config("tre",foreground="orange")
     print
     print ("============================================")
     print (time.strftime("Modifiche aggiornate il: %d/%m/%Y alle ore %H:%M:%S"))
     print
     for linea in riga:
+        y=y+1
+        x=0
         for carattere in linea:
+            x=x+1
             istruzione=istruzione+carattere
             
             if istruzione=="stampa" and aperta==0:
                 rigacompleta=rigacompleta+"print"
+                xx=str(y)+"."+str(x)
+                xx1=str(y)+"."+str(x-len(istruzione))
+                testo.tag_add("tre",xx1,xx)
                 istruzione=""
 
             if istruzione=="importa" and aperta==0:
                 rigacompleta=rigacompleta+"import"
+                xx=str(y)+"."+str(x)
+                xx1=str(y)+"."+str(x-len(istruzione))
+                testo.tag_add("tre",xx1,xx)
                 istruzione=""
 
             if istruzione=="matematica" and aperta==0:
@@ -71,38 +85,65 @@ def correggi(event=None):
                     pass
                 else:
                     rigacompleta=rigacompleta+"if"
+                    xx=str(y)+"."+str(x)
+                    xx1=str(y)+"."+str(x-len(istruzione))
+                    testo.tag_add("tre",xx1,xx)
                     istruzione=""
 
             if istruzione=="domanda" and aperta==0:
                 rigacompleta=rigacompleta+"input"
+                xx=str(y)+"."+str(x)
+                xx1=str(y)+"."+str(x-len(istruzione))
+                testo.tag_add("uno",xx1,xx)
                 istruzione=""
 
             if istruzione=="finoache" and aperta==0:
                 rigacompleta=rigacompleta+"while"
+                xx=str(y)+"."+str(x)
+                xx1=str(y)+"."+str(x-len(istruzione))
+                testo.tag_add("tre",xx1,xx)
                 istruzione=""
 
             if istruzione=="allora" and aperta==0:
                 rigacompleta=rigacompleta+":"
+                xx=str(y)+"."+str(x)
+                xx1=str(y)+"."+str(x-len(istruzione))
+                testo.tag_add("tre",xx1,xx)
                 istruzione=""
 
             if istruzione=="ugualea" and aperta==0:
                 rigacompleta=rigacompleta+"=="
+                xx=str(y)+"."+str(x)
+                xx1=str(y)+"."+str(x-len(istruzione))
+                testo.tag_add("uno",xx1,xx)
                 istruzione=""
 
             if istruzione=="diversoda" and aperta==0:
                 rigacompleta=rigacompleta+"!="
+                xx=str(y)+"."+str(x)
+                xx1=str(y)+"."+str(x-len(istruzione))
+                testo.tag_add("uno",xx1,xx)
                 istruzione=""
 
             if istruzione=="maggioredi" and aperta==0:
                 rigacompleta=rigacompleta+">"
+                xx=str(y)+"."+str(x)
+                xx1=str(y)+"."+str(x-len(istruzione))
+                testo.tag_add("uno",xx1,xx)
                 istruzione=""
                 
             if istruzione=="minoredi" and aperta==0:
                 rigacompleta=rigacompleta+"<"
+                xx=str(y)+"."+str(x)
+                xx1=str(y)+"."+str(x-len(istruzione))
+                testo.tag_add("uno",xx1,xx)
                 istruzione=""
 
             if istruzione=="altrimentise" and aperta==0:
                 rigacompleta=rigacompleta+"elif"
+                xx=str(y)+"."+str(x)
+                xx1=str(y)+"."+str(x-len(istruzione))
+                testo.tag_add("uno",xx1,xx)
                 istruzione=""
 
             if istruzione=="altrimenti" and aperta==0:
@@ -110,6 +151,9 @@ def correggi(event=None):
                     pass
                 else:
                     rigacompleta=rigacompleta+"else"
+                    xx=str(y)+"."+str(x)
+                    xx1=str(y)+"."+str(x-len(istruzione))
+                    testo.tag_add("uno",xx1,xx)
                     istruzione=""
 
             if istruzione=="e" and aperta==0:
@@ -117,6 +161,9 @@ def correggi(event=None):
                     pass
                 else:
                     rigacompleta=rigacompleta+"and"
+                    xx=str(y)+"."+str(x)
+                    xx1=str(y)+"."+str(x-len(istruzione))
+                    testo.tag_add("uno",xx1,xx)
                     istruzione=""
 
             if istruzione=="o" and aperta==0:
@@ -124,6 +171,9 @@ def correggi(event=None):
                     pass
                 else:
                     rigacompleta=rigacompleta+"or"
+                    xx=str(y)+"."+str(x)
+                    xx1=str(y)+"."+str(x-len(istruzione))
+                    testo.tag_add("uno",xx1,xx)
                     istruzione=""
 
             if carattere==" ":
