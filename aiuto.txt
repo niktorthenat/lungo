@@ -1,0 +1,375 @@
+***aggiungi***
+aggiungi
+
+- metodo delle liste -
+
+Usato per aggiungere un elemento ad una determinata lista.
+
+Esempio:
+alfa=["uno","tre"]
+alfa.aggiungi("ciao")
+scrivi(alfa)
+
+Risultato:
+["uno","tre","ciao"]
+***aggiungi***
+
+***creaeseguibile***
+creaeseguibile
+
+- istruzione di comando -
+
+Usato come primissima istruzione del programma, serve a creare un file eseguibile .exe per sistemi operatvi Windows.
+Usando questa istruzione, verranno generate nuove cartelle, tra cui la cartella \dist all'interno della quale ci sarà un file, denominato "provola-convertito.exe" che è il file eseguibile del vostro programma.
+E' possibile che avviando "provola-convertito.exe", i vostro sistema operativo Windows lo segnali come un virus, ma così non è. La segnalazione di possibile virus, è fatta da Windows, perchè non è uno dei soliti software gestiti dal sistema operativo.
+
+Esempio:
+creaeseguibile
+scrivi("ciao")
+
+Risultato:
+Verrà creato il file "provola-convertito.exe", che farà scrivere sul display la parola "ciao"
+***creaeseguibile***
+
+***controllaprogramma***
+controllaprogramma
+
+- istruzione di comando -
+
+Usato come primissima istruzione del programma, permetterà di fare un debug (controllo) di eventuali errori. Gli errori saranno però segnalati sul codice Python generato da Lungo.
+Se proviamo ad eseguire questo programma con errore alla riga 8 dove invece dell'istruzione corretta "pulsante" c'è l'istruzione sbagliata "pulsnte":
+controllaprogramma
+
+alfa=finestra()
+alfa.titolo("Gestore password")
+alfa.grandezza("300x300")
+x=etichetta(alfa,testo="Digita la password").impacchetta()
+y=caselladitesto(alfa,larghezza=10)
+y.impacchetta()
+z=pulsnte(alfa,testo="ACCEDI",esegui=provola).impacchetta()
+alfa.ciclico()
+
+allora verrà aperta una finestra di comando, che attende nostre disposizioni.
+ 
+(chiaramente il testo della finestra sopra varierà da utente ad utente, in base alle proprie impostazioni del computer)
+L’unico testo che sicuramente è comune a tutti gli utenti, è l’apparizione della riga (Pdb) e il cursore lampeggiante che aspetta che scriviamo qualcosa.
+Se scriviamo la lettera r e premiamo INVIO, il programma verrà eseguito, e quando trova un errore lo scrive sulla riga di comando. 
+ 
+Il programma esegue le istruzioni che sono corrette, che nel caso specifico fanno apparire una finestra, ma nella riga di comando, viene scritta la riga che ha incontrato e che contiene un errore.
+***controllaprogramma***
+
+***scrivi***
+scrivi
+
+- istruzione -
+
+L’istruzione scrivi permette di scrivere testi o numeri sullo schermo, semplicemente mettendo tra parentesi tonde ciò che si vuole scrivere. Nel caso si vogliano scrivere numeri che eseguono calcoli, se i numeri vengono messi tra virgolette allora verranno ripetuti così come sono, mentre se vengono scritti senza essere racchiusi tra virgolette, verranno eseguite le operazioni.
+scrivi("ciao")
+scrivi("23+2")
+scrivi(23+2)
+la prima e seconda istruzione scriveranno esattamente quello che è scritto tra virgolette, mentre l’ultima istruzione esegue il calcolo tra i numeri, perché non è racchiusa tra virgolette.
+ 
+I testi scritti tra virgolette, ad esempio “ciao” oppure “23+2”, sono definiti stringhe
+Nelle stringhe possiamo scrivere caratteri speciali che eseguono determinati compiti, come ad esempio \n che impone il ritorno a capo, oppure \t che impone uno spazio di tabulazione.
+scrivi("ciao\namico")
+scrivi("ciao\tamico")
+Nella prima istruzione il carattere \n farà scrivere, a capo, la parola “amico”, mentre nella seconda istruzione il carattere \t farà spaziare di una tabulazione la parola “amico”
+ 
+Se invece abbiamo la necessità di scrivere un testo, esattamente come l’abbiamo digitato, ma all’interno della stringa ci sono dei caratteri che potrebbero essere interpretati come caratteri speciali, come \t o \n, allora dobbiamo anteporre alla stringa la lettera r
+scrivi("Uno il segno \n oppure \t per eseguire comandi")
+scrivi(r"Uno il segno \n oppure \t per eseguire comandi")
+Notare che nella seconda istruzione c’è la r davanti la stringa che impone di scrivere il testo esattamente come l’abbiamo digitato:
+ 
+Possiamo moltiplicare la scrittura di stringhe, semplicemente usando il carattere * (asterisco) che in informatica equivale al segno della moltiplicazione X (per)
+scrivi("ciao "*3)
+***scrivi***
+
+***lunghezza***
+lunghezza
+
+- istruzione -
+
+L'istruzione lunghezza permette di conoscere il numero di caratteri di cui è composta una stringa o una lista.
+
+Esempio:
+alfa="ciao come stai"
+scrivi(lunghezza(alfa))
+
+Risultato:
+14
+***lunghezza***
+
+***conta***
+conta
+
+- metodo delle stringhe -
+
+Il metodo conta permette di contare quante volte è presente una stringa dentro un’altra. La stringa da cercare può anche essere un singolo carattere.
+
+Esempio:
+alfa="ciao a tutti"
+beta=alfa.conta("a")
+scrivi(beta)
+
+Risultato:
+2
+***conta***
+
+***trova***
+trova
+
+- metodo delle stringhe -
+
+Il metodo trova serve a trovare una stringa dentro un’altra stringa. Se la stringa viene trovata, allora ci verrà data la posizione in cui inizia la prima occorrenza trovata, altrimenti, se non viene trovata, verrà dato come risultato -1.
+
+Esempio:
+alfa="ciao a tutti"
+beta=alfa.trova("a")
+scrivi(beta)
+
+Risultato:
+2
+***trova***
+
+***iniziacon***
+iniziacon
+
+- metodo delle stringhe -
+
+Il metodo iniziacon permette di controllare se una determinata stringa, inizia con una determinata altra stringa. Se il controllo di una stringa sarà vero, allora verrà dato come risultato True, che in italiano significa vero, altrimenti se non inizia con la stringa controllata, allora avremo come risultato False, che in italiano significa falso.
+
+Esempio:
+alfa="ciao a tutti"
+scrivi(alfa.iniziacon("c"))
+
+Risultato:
+True
+N.B.: True è una parola inglese che significa "vero", invece False significa "falso"
+
+Volendo, si può convertire il risultato in numero, in modo da avere 1 se la stringa che si è controllata è vera, oppure 0  se è falsa. Per far convertire il risultato in numero, allora si usa l’istruzione intero:
+
+Esempio:
+alfa="ciao a tutti"
+scrivi(intero(alfa.iniziacon("c")))
+
+Risultato:
+1
+***iniziacon***
+
+***finiscecon***
+finiscecon
+
+- metodo delle stringhe -
+
+Il metodo finiscecon permette di controllare se una determinata stringa, finisce con una determinata altra stringa. La sintassi, cioè il funzionamento di questa istruzione è uguale alle regole dell’istruzione iniziacon.
+
+Esempio:
+alfa="ciao a tutti"
+scrivi(alfa.finiscecon("c"))
+
+Risultato:
+False
+
+N.B.: vedasi il motodo "iniziacon" per vedere informazioni aggiuntive utili anche a questa istruzione.
+***finiscecon***
+
+***sostituisci***
+sostituisci
+
+- metodo delle stringhe -
+
+Il metodo sostituisci, permette di sostituire uno o più caratteri di una stringa con altro testo. Tra parentesi prima verrà messo il testo da cercare, e poi va messo il testo da sostituire al testo cercato.
+
+Esempio:
+alfa="ciao a tutti i miei amici"
+scrivi(alfa)
+beta=alfa.sostituisci("tutti","quasi tutti")
+scrivi(beta)
+
+Risultato:
+ciao a tutti i miei amici
+ciao a quasi tutti i miei amici
+***sostituisci***
+
+***maiuscolo***
+maiuscolo
+
+- metodo delle stringhe -
+
+Le istruzioni maiuscolo e minuscolo permettono di convertire un testo, rispettivamente tutto in maiuscolo o tutto in minuscolo.
+
+Esempio:
+alfa="ciao"
+beta="BENE"
+scrivi(alfa.maiuscolo())
+scrivi(beta.minuscolo())
+
+Risultato:
+CIAO
+bene
+***maiuscolo***
+
+***minuscolo***
+minuscolo
+
+- metodo delle stringhe -
+
+Le istruzioni maiuscolo e minuscolo permettono di convertire un testo, rispettivamente tutto in maiuscolo o tutto in minuscolo.
+
+Esempio:
+alfa="ciao"
+beta="BENE"
+scrivi(alfa.maiuscolo())
+scrivi(beta.minuscolo())
+
+Risultato:
+CIAO
+bene
+***minuscolo***
+
+***primamaiuscola***
+primamaiuscola
+
+- metodo delle stringhe -
+
+Le istruzioni primamaiuscola e primemaiuscole, permettono, rispettivamente, di convertire in maiuscolo solo la prima lettera della stringa, oppure di convertire in maiuscolo tutte le prime iniziali di ogni parola contenuta nella stringa.
+
+Esempio:
+alfa="ciao amici miei"
+scrivi(alfa.primamaiuscola())
+scrivi(alfa.primemaiuscole())
+
+Risultato:
+Ciao amici miei
+Ciao Amici Miei
+***primamaiuscola***
+
+***primemaiuscole***
+primemaiuscole
+
+- metodo delle stringhe -
+
+Le istruzioni primamaiuscola e primemaiuscole, permettono, rispettivamente, di convertire in maiuscolo solo la prima lettera della stringa, oppure di convertire in maiuscolo tutte le prime iniziali di ogni parola contenuta nella stringa.
+
+Esempio:
+alfa="ciao amici miei"
+scrivi(alfa.primamaiuscola())
+scrivi(alfa.primemaiuscole())
+
+Risultato:
+Ciao amici miei
+Ciao Amici Miei
+***primemaiuscole***
+
+***unisci***
+unisci
+
+- metodo delle stringhe -
+
+L’istruzione unisci permette di unire delle stringhe, utilizzando uno o più caratteri di concatenamento.
+Se ad esempio abbiamo la stringa alfa contenete il testo “ciao amici miei”, potremmo far unire i singoli caratteri della stringa, mettendo tra l’oro un carattere, come ad esempio l’asterisco:
+
+Esempio:
+alfa="ciao amici miei"
+scrivi("*".unisci(alfa))
+
+Risultato:
+c*i*a*o* *a*m*i*c*i* *m*i*e*i
+
+Inoltre è anche possibile unire gli elementi di una lista.
+
+Esempio:
+alfa=["ciao","a","tutti"]
+scrivi(" ".unisci(alfa))
+
+Risultato:
+ciao a tutti
+***unisci***
+
+***dividi***
+dividi
+
+- metodo delle stringhe -
+
+L’istruzione dividi permette di dividere una stringa, specificando come dividerla.
+Possiamo divere la stringa, parola per parola: “ciao” “a” “tutti” con l’istruzione dividi, specificando tra parentesi tonde che vogliamo dividere la stringa dove trova uno spazio “ “:
+
+Esempio:
+alfa="ciao a tutti"
+scrivi(alfa.dividi(" "))
+
+Risultato:
+['ciao','a','tutti']
+
+E’ anche possibile specificare il massimo delle divisioni volute, ad esempio, per lo stesso programma, possiamo specificare che venga diviso una sola volta, quindi che la stringa deve essere divisa solo quando viene trovato il primo spazio e non anche per gli altri:
+
+Esempio:
+alfa="ciao a tutti"
+scrivi(alfa.dividi(" ",1))
+
+Risultato:
+['ciao','a tutti']
+***dividi***
+
+***eliminaspazi***
+eliminaspazi
+
+- metodo delle stringhe -
+
+Le istruzioni eliminaspazi, eliminaspaziiniziali ed eliminaspazifinali, servono per eliminare eventuali spazi, rispettivamente, sia all’inizio che alla fine di una stringa (eliminaspazi) che solo all’inizio di una stringa (eliminaspaziiniziali) che solo alla fine di una stringa (eliminaspazifinali)
+
+Esempio:
+alfa="     ciao amici miei     "
+scrivi(alfa)
+scrivi(alfa.eliminaspazi())
+scrivi(alfa.eliminaspaziiniziali())
+scrivi(alfa.eliminaspazifinali())
+
+Risultato:
+     ciao amici miei
+ciao amici miei
+ciao amici miei
+     ciao amici miei
+***eliminaspazi***
+
+***eliminaspaziiniziali***
+eliminaspaziiniziali
+
+- metodo delle stringhe -
+
+Le istruzioni eliminaspazi, eliminaspaziiniziali ed eliminaspazifinali, servono per eliminare eventuali spazi, rispettivamente, sia all’inizio che alla fine di una stringa (eliminaspazi) che solo all’inizio di una stringa (eliminaspaziiniziali) che solo alla fine di una stringa (eliminaspazifinali)
+
+Esempio:
+alfa="     ciao amici miei     "
+scrivi(alfa)
+scrivi(alfa.eliminaspazi())
+scrivi(alfa.eliminaspaziiniziali())
+scrivi(alfa.eliminaspazifinali())
+
+Risultato:
+     ciao amici miei
+ciao amici miei
+ciao amici miei
+     ciao amici miei
+***eliminaspaziiniziali***
+
+***eliminaspazifinali***
+eliminaspazifinali
+
+- metodo delle stringhe -
+
+Le istruzioni eliminaspazi, eliminaspaziiniziali ed eliminaspazifinali, servono per eliminare eventuali spazi, rispettivamente, sia all’inizio che alla fine di una stringa (eliminaspazi) che solo all’inizio di una stringa (eliminaspaziiniziali) che solo alla fine di una stringa (eliminaspazifinali)
+
+Esempio:
+alfa="     ciao amici miei     "
+scrivi(alfa)
+scrivi(alfa.eliminaspazi())
+scrivi(alfa.eliminaspaziiniziali())
+scrivi(alfa.eliminaspazifinali())
+
+Risultato:
+     ciao amici miei
+ciao amici miei
+ciao amici miei
+     ciao amici miei
+***eliminaspazifinali***

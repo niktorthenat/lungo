@@ -1,0 +1,16 @@
+alfa=nuovodocumento("prova.docx")
+paragrafo = alfa.bookmarks["nome"].position
+paragrafo=alfa.continuaparagrafo("Luca")
+alfa.salva("prova.docx")
+
+
+
+
+
+
+
+
+
+
+
+
