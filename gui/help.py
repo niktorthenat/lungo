@@ -1,7 +1,11 @@
 import tkinter as tk
 import tkinter.ttk as ttk
-from tkinterhtml import HtmlFrame
 import os
+from platform import system
+from glob import glob
+
+if system() != "Windows":
+    from tkinterhtml import HtmlFrame
 
 DOC_PATH = os.path.join(os.getcwd(), "doc")
 
@@ -15,24 +19,32 @@ class HelpApp:
     """
     def __init__(self, master=None):
         self.main_help_win = tk.Tk() if master is None else tk.Toplevel(master)
+        self.main_paned_container = tk.PanedWindow(self.main_help_win)
+        self.main_paned_container.pack(expand=1, fill=tk.BOTH)
 
-        # Contenitore di sinistra con vista ad albero su struttura directory documentazione
-        self.doc_tree_view = ttk.Frame(self.main_help_win, borderwidth=0, relief="solid")
-        self.treeview_struct = ttk.Treeview(self.doc_tree_view, show="tree")
-        self.fileview_scroll = tk.Scrollbar(self.doc_tree_view, orient=tk.VERTICAL, command=self.treeview_struct.yview)
+        # Pannello di sinistra
+        self.doc_tree_view = tk.PanedWindow(self.main_paned_container, orient=tk.VERTICAL)
+        self.treeview_struct = ttk.Treeview(self.doc_tree_view, show="tree", style="mystyle.Treeview")
         self.base_doc_node = self.treeview_struct.insert('', 'end', iid="doc", text="Documentazione", open=True)
         self.treeview_struct.heading("#0", text="")
-        self.treeview_struct.configure(yscroll=self.fileview_scroll.set)
         self.treeview_struct.bind("<<TreeviewSelect>>", self.__get_opened_item)
         self.__populate_tree()
         self.treeview_struct.pack(expand='true', fill='both', side='top')
         self.doc_tree_view.pack(anchor='n', expand='false', fill='both', side='left')
 
-        # Contenitore di destra con contenuto pagina documentazione
-        self.doc_text_view = ttk.Frame(self.main_help_win, borderwidth=0)
-        self.doc_text_view.pack(expand='true', fill='both', side='right', padx=5)
-        self.doc_page = HtmlFrame(self.doc_text_view, horizontal_scrollbar=False)
+        # Pannello di destra
+        self.doc_text_view = tk.PanedWindow(self.main_paned_container, orient=tk.VERTICAL)
+        if system() == "Windows":
+            self.doc_page = tk.Text(self.doc_text_view, font=("Helvetica", 10))
+        else:
+            self.doc_page = HtmlFrame(self.doc_text_view, horizontal_scrollbar=False)
         self.doc_page.pack(expand='true', fill='both', side='right')
+
+        # Aggiungo i pannelli 
+        self.main_paned_container.add(self.doc_tree_view)
+        self.main_paned_container.add(self.doc_text_view)
+        self.doc_tree_view.add(self.treeview_struct)
+        self.doc_text_view.add(self.doc_page)
 
         # Configurazione generale su finestra
         self.main_help_win.configure(relief='flat')
@@ -40,9 +52,6 @@ class HelpApp:
         self.main_help_win.maxsize(800, 600)
         self.main_help_win.resizable(True, True)
         self.main_help_win.title('Lungo Help')
-
-        # Main widget
-        self.mainwindow = self.main_help_win
 
     def __get_opened_item(self, event):
         """
@@ -54,34 +63,46 @@ class HelpApp:
         path = os.path.join(parent, child)
         if os.path.isfile(path):
             self.__elaborate_data(path)
+
+    def __get_right_file_type(self, node, base_path, regex) -> list:
+        """
+            In base al tipo di sistema operativo sceglie quali pagine 
+            della documentazione recuperare.
+        """
+        file_match = f"{os.path.join(base_path, regex)}"
+        for file in glob(file_match):
+            filename, ext = os.path.splitext(os.path.basename(file))
+            self.treeview_struct.insert(node, "end", iid=f"{file}", text=filename)
     
     def __populate_tree(self):
         """
             Popola la vista sulla documentazione.
-            NOTE: Questo metodo è pensato per operato su un solo livello di directory, qualora 
-                  si avesse la necessità di richiamarlo su pià livelli non basta fare altro
-                  che aggiungere una chimata ricorsiva dello stesso.
         """
         for index, path in enumerate(os.listdir(DOC_PATH)):
             fullpath = os.path.join(DOC_PATH, path)
             parent_node = self.treeview_struct.insert(self.base_doc_node, "end", iid=f"{fullpath}", text=f"/{path}")
-            for file in os.listdir(fullpath):
-                self.treeview_struct.insert(parent_node, "end", iid=f"{file}", text=file.split(".")[0])
+            if system() == "Windows":
+                self.__get_right_file_type(parent_node, fullpath, "*.txt")
+            else:
+                self.__get_right_file_type(parent_node, fullpath, "*.html")
 
     def __elaborate_data(self, path):
         """
             Mostra il contenuto html del file della documentazione selezionato.
         """
-        with open(path) as html_file:
-            self.doc_page.set_content(html_file.read())
+        with open(path, encoding="utf-8") as documentation:
+            data = documentation.read()
+            if system() == "Windows":
+                self.doc_page.configure(state="normal")
+                self.doc_page.delete(1.0, tk.END)
+                self.doc_page.insert(tk.INSERT, data)
+                self.doc_page.configure(state="disabled")
+            else:
+                self.doc_page.set_content(documentation.read())
 
     def run(self):
-        self.mainwindow.mainloop()
+        self.main_help_win.mainloop()
 
 if __name__ == '__main__':
-    #NOTE: Appena aperta l'applicazione se si fà click sul pannello di destra nel terminale
-    #      viene fuori un errore non bloccante. Penso ci sia un bug nella libreria tkinterhtml
-    #      il quale non gestisce propriamente il codice. Se in qualche modo dovesse creare 
-    #      problemi sarebbe meglio risolverlo.
     app = HelpApp()
     app.run()

@@ -1,0 +1,19 @@
+Builtin - creaeseguibile
+__________________________
+
+- istruzione di comando -
+__________________________
+
+Usato come primissima istruzione del programma, serve a creare un file eseguibile .exe per sistemi operatvi Windows.
+Usando questa istruzione, verranno generate nuove cartelle, tra cui la cartella \dist all'interno della quale ci sarà un file, denominato "provola-convertito.exe" che è il file eseguibile del vostro programma.
+E' possibile che avviando "provola-convertito.exe", i vostro sistema operativo Windows lo segnali come un virus, ma così non è. La segnalazione di possibile virus, è fatta da Windows, perchè non è uno dei soliti software gestiti dal sistema operativo.
+
+Esempio
+_______
+
+creaeseguibile
+scrivi("ciao")
+
+Risultato
+_________
+Verrà creato il file "provola-convertito.exe", che farà scrivere sul display la parola "ciao"

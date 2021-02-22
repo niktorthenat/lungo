@@ -1,0 +1,32 @@
+Builtin - aggiungi
+_________________________
+
+- istruzione di comando -
+_________________________
+
+Usato come primissima istruzione del programma, permetterà di fare un debug (controllo) di eventuali errori. Gli errori saranno però segnalati sul codice Python generato da Lungo.
+Se proviamo ad eseguire questo programma con errore alla riga 8 dove invece dell'istruzione corretta "pulsante" c'è l'istruzione sbagliata "pulsnte":
+controllaprogramma.
+
+Esempio
+_______
+
+controllaprogramma
+
+alfa=finestra()
+alfa.titolo("Gestore password")
+alfa.grandezza("300x300")
+x=etichetta(alfa,testo="Digita la password").impacchetta()
+y=caselladitesto(alfa,larghezza=10)
+y.impacchetta()
+z=pulsnte(alfa,testo="ACCEDI",esegui=provola).impacchetta()
+alfa.ciclico()
+
+Risultato
+_________
+
+Si aprirà una finestra di comando, che attende nostre disposizioni.
+(chiaramente il testo della finestra sopra varierà da utente ad utente, in base alle proprie impostazioni del computer)
+L’unico testo che sicuramente è comune a tutti gli utenti, è l’apparizione della riga (Pdb) e il cursore lampeggiante che aspetta che scriviamo qualcosa.
+Se scriviamo la lettera r e premiamo INVIO, il programma verrà eseguito, e quando trova un errore lo scrive sulla riga di comando. 
+Il programma esegue le istruzioni che sono corrette, che nel caso specifico fanno apparire una finestra, ma nella riga di comando, viene scritta la riga che ha incontrato e che contiene un errore.
