@@ -14,7 +14,26 @@ from tkinter.ttk import Progressbar
 from tkinter import filedialog
 from tkinter import Menu
 from tkinter import ttk
+from ttkthemes import ThemedTk
+from gui.help import HelpApp
 
+class MenuObj(object):
+    def __init__(self, parent):
+        self.parent = parent
+        self.menubar = Menu(self.parent)
+
+        # Doc
+        self.menubar_doc = Menu(self.menubar, tearoff=0)
+        self.menubar_doc.add_command(label="Manuale", command= lambda: self.show_doc())
+
+        # Definizione menù
+        self.menubar.add_cascade(menu=self.menubar_doc, label="Aiuto")
+
+        # Aggiunta menù 
+        self.parent.configure(menu=self.menubar)
+
+    def show_doc(self):
+        help = HelpApp(self.parent)
 
 def editor_salva():
     global testo
@@ -24,7 +43,6 @@ def editor_salva():
     programma.close()
     controlla()
     
-
 def leggi():
     #Creo una lista di nome 'riga'
     riga=[]
@@ -361,7 +379,6 @@ def controlla():
             os.system("pip install pyinstaller")
             subprocess.run("pyinstaller --onefile provola-convertito.py")
 
-
 def istruzioni(event):
     x=event.widget.curselection()
     aiuto_testo.delete("1.0",END)
@@ -393,7 +410,6 @@ def istruzioni(event):
         aiuto_testo.insert(INSERT,"nessuna istruzione trovata")
     else:
         trovato=0
-
 
 def aiuto():
     presentazione.pack_forget()
@@ -442,10 +458,11 @@ def resetta():
     pulsante1.pack(fill=BOTH, expand = YES)
     
 #Editor di testo
-finestra=Tk()
+finestra=ThemedTk(theme="breeze")
 finestra.title("Editor per Lungo - by NiktorTheNat")
 finestra.geometry("900x800")
 finestra.config(bg="#ccccff",pady=70,padx=70)
+menu = MenuObj(finestra)
 #testo=scrolledtext.ScrolledText(finestra,width=80,height=35)
 presentazione=Text(finestra,width=80,height=5,bg="#8080ff",fg="#ccccff",font=('Courier', 16))
 presentazione.pack(fill=BOTH, expand = YES)
