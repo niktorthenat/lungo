@@ -1,0 +1,15 @@
+Builtin - aggiungi
+______________________
+
+- metodo delle liste -
+______________________
+Usato per aggiungere un elemento ad una determinata lista.
+
+Esempio:
+
+    alfa=["uno","tre"]
+    alfa.aggiungi("ciao")
+    scrivi(alfa)
+
+Risultato:
+    ["uno","tre","ciao"]
