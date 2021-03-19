@@ -1,20 +1,4 @@
-***aggiungi***
-aggiungi
-
-- metodo delle liste -
-
-Usato per aggiungere un elemento ad una determinata lista.
-
-Esempio:
-alfa=["uno","tre"]
-alfa.aggiungi("ciao")
-scrivi(alfa)
-
-Risultato:
-["uno","tre","ciao"]
-***aggiungi***
-
-***creaeseguibile***
+﻿***creaeseguibile***
 creaeseguibile
 
 - istruzione di comando -
@@ -97,12 +81,20 @@ scrivi(lunghezza(alfa))
 
 Risultato:
 14
+
+Esempio con una lista:
+alfa=["ciao","ultimo","casa",7,23,"lavatrice","provola"]
+scrivi(lunghezza(alfa))
+
+Risultato:
+7
+
 ***lunghezza***
 
 ***conta***
 conta
 
-- metodo delle stringhe -
+- metodo delle stringhe e liste-
 
 Il metodo conta permette di contare quante volte è presente una stringa dentro un’altra. La stringa da cercare può anche essere un singolo carattere.
 
@@ -113,6 +105,14 @@ scrivi(beta)
 
 Risultato:
 2
+
+Esempio con le liste:
+alfa=["ciao","ultimo","casa",7,"ultimo","lavatrice","provola"]
+scrivi(alfa.conta("ultimo"))
+
+Risposta:
+2
+
 ***conta***
 
 ***trova***
@@ -373,3 +373,1337 @@ ciao amici miei
 ciao amici miei
      ciao amici miei
 ***eliminaspazifinali***
+
+***unici***
+unici
+
+- istruzione -
+
+L’istruzione unici permette di estrarre da una stringa o da una lista, i soli caratteri o parole uniche, anche se vengono ripetute.
+Prendiamo ad esempio la parola “tutti”. Nella parola "tutti" ci sono 3 T ripetute, quindi dovessimo dire quali lettere formano la parola tutti, senza indicare quelle che si ripetono, dovremo rispondere “T U I”:
+
+Esempio:
+alfa="tutti"
+beta=unici(alfa)
+scrivi(beta)
+
+Risultato:
+{'t', 'i', 'u'}
+ 
+
+Lo stesso può essere fatto con le liste di parole.
+
+Esempio:
+alfa=["tre","ciao","lavatrice","ciao","provola","ecco","tre","ciao"]
+beta=unici(alfa)
+scrivi(beta)
+
+Risultato:
+{'ciao', 'tre, 'provola', 'ecco, 'lavatrice'}
+
+***unici***
+
+***combinazioniuniche***
+combinazioniuniche
+
+- istruzione -
+
+L’istruzione combinazioniuniche, permette di ottenere tutte le combinazioni possibili di elementi di una lista. Bisogna solo specificare quanti elementi vanno combinati tra loro.
+Poniamo l’esempio di una lista di elementi: “niktor”, “the”,”nat”.
+Le combinazioni possibili sono:
+niktor,the
+niktor,nat
+the,nat
+nessun’altra combinazione unica è possibile.
+
+Esempio:
+alfa=["niktor","the","nat"]
+beta=combinazioniuniche(alfa,2)
+considera x con beta:
+	scrivi(x)
+
+Risultato:
+('niktor', 'the')
+('niktor', 'nat')
+('the', 'nat'
+
+Se ad esempio mettiamo come opzione il valore 3, otterremo solo una combinazione unica possibile perchè è come chiedere combinazioni uniche formate obbligatoriamente da tre testi.
+
+Esempio:
+alfa=["niktor","the","nat"]
+beta=combinazioniuniche(alfa,3)
+considera x con beta:
+	scrivi(x)
+
+Risultato:
+('niktor', 'the', 'nat')
+
+E’ anche possibile usare i numeri come elementi da elaborare. Proviamo questo esempio:
+
+Esempio:
+alfa=[6,9,3,5,4,8,2]
+beta=combinazioniuniche(alfa,3)
+considera x con beta:
+	scrivi(x)
+
+(6,3,4)
+(6,3,8)
+(6,3,2)
+(6,5,4)
+(6,5,8)
+(6,5,2)
+(6,4,8)
+(6,4,2)
+(6,8,2)
+(9,3,5)
+(9,3,4)
+(9,3,8)
+(9,3,2)
+(9,5,4)
+(9,5,8)
+(9,5,2)
+(9,4,8)
+(9,8,2)
+(3,5,4)
+(3,5,8)
+(3,5,2)
+(3,4,8)
+(3,4,2)
+(3,8,2)
+(5,4,8)
+(5,4,2)
+(5,8,2)
+(4,8,2)
+
+***combinazioniuniche***
+
+***combinazioniestese***
+combinazioniestese
+
+- istruzione -
+
+L’istruzione combinazioniestese esegue lo stesso ragionamento e stesse proprietà dell’istruzione combinazioniuniche, solo che le combinazioni sono espanse a tutte le possibilità fattibili, anche in ordine agli elementi presi in considerazione. Vediamo la nuova istruzione e la differenza all’uso di combinazioniuniche:
+
+Esempio usando combinazioniestese:
+alfa=["niktor","the","nat"]
+beta=combinazioniestese(alfa,2)
+considera x con beta:
+	scrivi(x)
+
+Risultato:
+('niktor', 'the')
+('niktor', 'nat')
+('the', 'niktor')
+('the', 'nat')
+('nat', 'niktor')
+('nat', 'the')
+ 
+Esempio usando combinazioniuniche:
+alfa=["niktor","the","nat"]
+beta=combinazioniuniche(alfa,2)
+considera x con beta:
+	scrivi(x)
+
+Risultato:
+('niktor', 'the')
+('niktor', 'nat')
+('the', 'nat')
+ 
+***combinazioniestese***
+
+***contalettere***
+contalettere
+
+- istruzione -
+
+L’istruzione contalettere permette di contare e/o raggruppare una lista di stringhe, in relazione al numero di lettere di cui è costituito ogni elemento.
+L’istruzione contalettere ha due opzioni, di cui una è la lista da elaborare, mentre la seconda è l’opzione lunghezza che conterà la lunghezza, in caratteri, di ogni elemento della lista.
+
+Esempio:
+alfa=["luca","marcella","rita","franco","giorgio"]
+beta=contalettere(alfa,lunghezza)
+considera x,y con beta:
+	scrivi(x)
+
+Nell'esempio sopra, il ciclo considera usa due variabili, ad esempio x e y, in cui in una ci sarà il numero di lettere, e nella secondo il testo dell’elemento.
+
+Risultato:
+4
+8
+4
+6
+7
+ 
+Esempio. Se invece aggiungiamo le seguenti istruzioni:
+alfa=["luca","marcella","rita","franco","giorgio"]
+beta=contalettere(alfa,lunghezza)
+considera x,y con beta:
+	considera z in y:
+		scrivi(x,z)
+
+allora otterremo la lunghezza di ogni elemento associata al suo elemento:
+
+Risultato:
+4 luca
+8 marcella
+4 rita
+6 franco
+7 giorgio
+
+***contalettere***
+
+***numerosuccessivo***
+numerosuccessivo
+
+-istruzione -
+
+L’istruzione numerosuccessivo permette di elaborare una lista di numeri (ma vedremo anche di stringhe) valutando sempre l’elemento successivo di una lista.
+Se non si usa alcuna opzione aggiuntiva, l’istruzione numerosuccessivo somma, progressivamente, l’elemento precedente con quello successivo. Ad esempio, in una lista di numeri: [1,3,2,5], il computer ragionerà valutando prima il numero 1, poi il numero 3+1 che fa 4, poi 4+2 che fa 6, poi 6+5 che fa 11.
+
+Esempio:
+alfa=[1,3,2,5,4,1,7]
+beta=numerosuccessivo(alfa)
+considera x con beta:
+	scrivi(x)
+
+Risultato:
+1
+4
+6
+11
+15
+16
+23
+
+Usando l’opzione maggiore, valuterà progressivamente, il numero più grande che sta leggendo dalla lista. Se ad esempio abbiamo una lista di questo tipo: [5,2,6,2] allora succederà questo ragionamento:
+•	quando legge il numero 5 per il computer 5 è il numero più grande
+•	quando leggerà il numero 2 per il computer 5 è il numero più grande
+•	quando leggerà il numero 6 per il computer 6 è il numero più grande
+•	quando leggerà il numero 2 per il computer 2 è il numero più grande
+
+Esempio:
+alfa=[5,2,6,2,5,11,9,3]
+beta=numerosuccessivo(alfa,maggiore)
+considera x con beta:
+	scrivi(x)
+
+Risultato:
+5
+5
+6
+6
+6
+11
+11
+11
+
+Usando invece l’opzione minore verrà eseguito lo stesso tipo di ragionamento, ma considerando sempre il numero minore che trova.
+
+Esempio:
+alfa=[5,2,6,2,5,11,9,3]
+beta=numerosuccessivo(alfa,minore)
+considera x con beta:
+	scrivi(x)
+
+Risultato:
+5
+2
+2
+2
+2
+2
+2
+2
+
+Si può usare l’istruzione numerosuccessivo anche con le stringhe, perché considera il valore numerico ASCII delle lettere, quindi:
+
+Esempio:
+alfa=["t","f","s","p","g","k","u","a","z"]
+beta=numerosuccessivo(alfa,maggiore)
+considera x con beta:
+	scrivi(x)
+ 
+Risultato:
+t
+t
+t
+t
+t
+t
+u
+u
+z
+
+
+E di conseguenza, anche:
+
+alfa=["t","f","s","p","g","k","u","a","z"]
+beta=numerosuccessivo(alfa,minore)
+considera x con beta:
+	scrivi(x)
+
+Risultato:
+t
+f
+f
+f
+f
+f
+f
+a
+a
+
+***numerosuccessivo***
+
+***aggiungi***
+aggiungi
+
+- metodo per le liste -
+
+Con il metodo aggiungi possiamo aggiungere elementi ad una lista.
+
+Esempio:
+alfa=["ciao","ultimo","casa",7,23,"lavatrice","provola"]
+alfa.aggiungi("niktor")
+scrivi(alfa)
+
+Risultato:
+['ciao', 'ultimo', 'casa', 7, 23, 'lavatrice', 'provola', 'niktor']
+
+***aggiungi***
+
+***posizione***
+posizione
+
+- metodo per le liste -
+
+Con il metodo posizione puoi eliminare un elemento dalla lista, specificando la sua posizione.
+IMPORTANTE: Le liste contano da 0, quindi il numero 1 equivale al secondo elemento e non al primo.
+
+Esempio:
+alfa=["ciao","ultimo","casa",7,23,"lavatrice","provola"]
+alfa.posizione(1)
+scrivi(alfa)
+
+Risultato:
+['ciao', 'casa', 7, 23, 'lavatrice', 'provola']
+
+***posizione***
+
+***rimuovi***
+rimuovi
+
+- metodo delle liste -
+
+Con il metodo rimuovi si può rimuovere un elemento indicando il suo contenuto.
+
+Esempio:
+alfa=["ciao","ultimo","casa",7,23,"lavatrice","provola"]
+alfa.rimuovi("lavatrice")
+scrivi(alfa)
+
+Risultato:
+['ciao', 'ultimo', 'casa', 7, 23, 'provola']
+
+***rimuovi***
+
+***indice***
+indice
+
+- metodo delle liste -
+
+Il metodo indice permette di sapere in quale posizione si trova un determinato elemento nella lista.
+IMPORTANTE: Le liste hanno un indice che parte a contare da 0.
+
+Esempio:
+alfa=["ciao","ultimo","casa",7,"ultimo","lavatrice","provola"]
+scrivi(alfa.indice("lavatrice"))
+
+Risultato:
+5
+
+***indice***
+
+***alfabetico***
+alfabetico
+
+- metodo delle liste -
+
+Il metodo alfabetico permette di ordinare alfabeticamente gli elementi di una lista.
+IMPORTANTE: possono essere ordinate alfabeticamente solo liste di stringhe, non miste numeri/stringhe.
+
+Esempio:
+alfa=["ciao","ultimo","casa","ultimo","lavatrice","provola"]
+alfa.alfabetico()
+scrivi(alfa)
+
+Risultato:
+['casa', 'ciao', 'lavatrice', 'provola', 'ultimo', 'ultimo']
+
+***alfabetico***
+
+***inverso***
+inverso
+
+-metodo delle liste -
+
+Il metodo inverso permette di ordinare una lista al contrario, non alfabaeticamente in modo inverso, ma letteralmente in modo inverso a come è stata scritta la lista. Per intenderci il primo elemento sarà ultimo, il secondo sarà penultimo e così via.
+
+Esempio:
+alfa=["ciao","ultimo","casa","ultimo","lavatrice","provola"]
+alfa.inverso()
+scrivi(alfa)
+
+Risultato:
+['provola', 'lavatrice', 'ultimo', 'casa', 'ultimo', 'ciao']
+
+***inverso***
+
+***finoache***
+finoache
+
+- istruzione ciclica -
+
+L’istruzione finoache permette di eseguire istruzioni cicliche in base a determinate condizioni.
+Con l'istruzione finoache, puoi far eseguire una op più istruzioni, ripetutamente, fino a che si verifica una determinata condizione.
+Le istruzioni da far ripetere nel ciclo, vanno scritte indentate, cioè rientrate dal margine.
+
+Esempio:
+alfa=10
+finoache alfa<20:
+	scrivi(alfa)
+	alfa=alfa+1
+
+la prima riga crea una variabile di nome alfa a cui viene assegnato il numero 10
+la seconda riga inizia l’istruzione finoache in cui si dice al programma di eseguire le istruzioni che troverà sotto, indentate (indentate significa “rientrate dal margine”), fino a che la variabile alfa avrà un valore minore di 20. Inizialmente ricordiamo che alfa ha un valore di 10, quindi inferiore a 20
+la terza riga fa scrivere il valore di alfa sullo schermo
+la quarta riga aumenta di una unità il valore di alfa
+
+Risultato:
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+
+***finoache***
+
+***domanda***
+domanda
+
+- istruzione di input -
+
+L’istruzione domanda è una istruzione di input, che permette di ottenere informazioni dall’utente.
+L’istruzione deve essere associata ad una variabile, dove andrà a finire la risposta.
+
+Esempio:
+alfa=domanda("Come ti chiami")
+scrivi(alfa)
+
+Risultato:
+Come ti chiami nik
+nik
+
+Spiegazione:
+la prima riga pone la domanda, e la risposta verrà inserita nella variabile alfa
+la seconda riga scrive sullo schermo il contenuto della variabile alfa
+ 
+Per ottenere risposte di valori numerici, dobbiamo racchiudere l’istruzione domanda, dentro le parentesi tonde di una istruzione intero, che è una istruzione che serve a impostare i numeri a valore intero, senza decimali.
+
+Esempio:
+alfa=intero(domanda("Digita un numero"))
+scrivi(alfa+3)
+
+Risultato:
+Digita un  numero 23
+26
+
+Spiegazione:
+la prima riga pone la domanda “digita un numero” e la risposta, viene considerata un numero intero, che poi viene messa nella variabile alfa
+la seconda riga scrive sullo schermo il valore della variabile alfa sommandoci il numero 3
+
+***domanda***
+
+***considera***
+considera
+
+- istruzione ciclica -
+
+L’istruzione considera con, è un’istruzione ciclica che permette di eseguire il ciclo un tot di volte, usando un indice che sarà una variabile scelta da noi.
+
+Esempio:
+alfa=["uno","due","tre","quattro"]
+considera x con alfa:
+	scrivi(x)
+
+Risultato:
+uno
+due
+tre
+quattro
+
+Spiegazione:
+la prima riga crea una lista di elementi
+la seconda riga prende in considerazione la variabile x, che viene creata in quel momento, processando la variabile alfa, che contiene la lista di dati e da quel momento inizia un ciclo, per cui ogni elemento presente nella lista alfa, verrà messo nella variabile x, e quindi quel ciclo verrà ripetuto per tutte le parole della lista, cioè 4 volte
+la terza riga scrive sullo schermo il contenuto della variabile x. Dato che ad ogni giro del ciclo alla variabile x viene passato un elemento della lista alfa, succede che verranno scritti tutti gli elementi sullo schermo
+
+Altro esempio in cui vengono scritte gli stessi elementi della lista precedente, ma con a fianco la lunghezza in caratteri di ogni stringa.
+
+Esempio:
+alfa=["uno","due","tre","quattro"]
+considera x con alfa:
+	scrivi(x,lunghezza(x))
+
+Risultato:
+uno 3
+due 3
+tre 3
+quattro 7
+
+***considera***
+
+***con***
+con
+
+- parte di istruzione ciclica -
+
+Vedi l'istruzione "considera"
+
+***con***
+
+***intervallo***
+intervallo
+
+- istruzione numerica -
+
+L’istruzione intervallo permette di indicare un determinato intervallo di numeri che potrà essere oggetto di elaborazione. Un utilizzo tipico è con l’istruzione "considera con".
+
+Esempio:
+considera x con intervallo(6):
+	scrivi(x)
+
+Risultato:
+0
+1
+2
+3
+4
+5
+
+Spiegazione:
+la prima riga considera la variabile x per contenere tutti i valori del ciclo, che sono presi dall’intervallo di 6, cioè da 0 a 5 (il linguaggio parte sempre a contare da zero e così sono comunque 6 elementi). Questo significa che il ciclo sarà eseguito 6 volte
+la seconda riga scrive man mano il valore della variabile x ad ogni ciclo
+
+***intervallo***
+
+***se***
+se
+
+- istruzione di condizione -
+
+L’istruzione se permette di eseguire dei ragionamenti. L'istruzione se, termina, sulla riga, con il segno di  duepunti (:)
+Faccio un esempio pratico in cui chiedo un numero all’utente, e se il numero che scriverà è maggiore di 10 allora verrò scritto “Numero troppo grande”
+
+Esempio:
+alfa=intero(domanda("Dammi un numero minore di 10 "))
+se alfa>10:
+	scrivi("Numero troppo grande")
+
+Risultato:
+Dammi un numero minore di 10 32
+Numero troppo grande
+
+Spiegazione:
+la prima riga pone la domanda all’utente e il numero digitato dall’utente lo inserisce nella variabile alfa
+la seconda riga controlla se la variabile alfa contiene un numero maggiore di 10, e in caso è così, allora esegue l’istruzione indentata che avvisa “Numero troppo grande”
+
+L’istruzione se  prevede anche l’uso opzionale di altrimentise che permette di fare una o più ulteriori ragionamenti. Nell’esempio sotto aggiungo l’istruzione altrimentise per verificare anche se il numero inserito dall’utente è minore di 1, ed in caso sia così, faccio scrivere “Numero troppo piccolo”
+
+Esempio:
+alfa=intero(domanda("Dammi un numero minore di 10 "))
+se alfa>10:
+	scrivi("Numero troppo grande")
+altrimentise alfa<1:
+	scrivi("Numero troppo piccolo")
+
+Risultato:
+Dammi un numero minore di 10 -3
+Numero troppo piccolo
+
+Anche l’istruzione altrimentise prevede di indentare le relative istruzioni da eseguire
+ 
+Infine esiste la possibilità di usare con l’istruzione se, anche l’istruzione altrimenti, che viene eseguita se tutti gli altri ragionamenti non corrispondono al ragionamento.
+Nell’esempio sotto ho infatti aggiunto l’istruzione altrimenti che scriverà sullo schermo il numero digitato dall’utente, che pertanto non sarà né troppo grande né troppo piccolo:
+
+Esempio:
+alfa=intero(domanda("Dammi un numero minore di 10 "))
+se alfa>10:
+	scrivi("Numero troppo grande")
+altrimentise alfa<1:
+	scrivi("Numero troppo piccolo")
+altrimenti:
+	scrivi("Hai scritto il numero",alfa)
+
+Risultato:
+Dammi un numero minore di 10
+Hai scritto il numero 4
+ 
+Con l’istruzione se, è possibile usare gli operatori booleani, che permettono di creare ragionamenti più complessi.
+Gli operatori booleani sono anche e oppure.
+Nell’esempio sotto chiedo il nome dell’utente, e se il nome è “nicola” oppure “niktor”, allora gli faccio scrivere “ciao amico”, altrimenti gli faccio scrivere “non ti conosco”
+
+Esempio:
+alfa=domanda("Come ti chiami? ")
+se alfa=="nicola" oppure alfa=="niktor":
+	scrivi("Ciao amico")
+altrimenti:
+	scrivi("Non ti conosco")
+
+Risultato:
+Come ti chiami? nicola
+Ciao amico
+
+Vediamo ora un esempio dell’uso dell’operatore booleano "anche".
+IMPORTANTE: al posto di "anche" si può usare anche "e".
+Nel programma sotto, chiedo all’utente il suo nome utente e la password. Se il nome utente è “niktor” e anche la password è “123” allora faccio scrivere “accesso consentito”, altrimenti faccio scrivere “accesso negato”
+
+Esempio:
+alfa=domanda("Nome utente? ")
+beta=domanda("Password? ")
+se alfa=="niktor" anche beta=="123":
+	scrivi("Accesso consentito")
+altrimenti:
+	scrivi("Accesso negato")
+
+Risultato:
+Nome utente? niktor
+Password? 143
+Accesso negato
+
+L'esempio sopra può essere scritto anche sostituendo l'istruzione "anche" con "e":
+
+Esempio:
+alfa=domanda("Nome utente? ")
+beta=domanda("Password? ")
+se alfa=="niktor" e beta=="123":
+	scrivi("Accesso consentito")
+altrimenti:
+	scrivi("Accesso negato")
+
+***se***
+
+***e***
+e
+
+- parte di istruzione di condizione -
+
+Vedi l'istruzione "se"
+
+***e***
+
+***anche***
+anche
+
+- parte di istruzione di condizione -
+
+Vedi l'istruzione "se"
+
+***anche***
+
+***oppure***
+oppure
+
+- parte di istruzione di condizione -
+
+Vedi l'istruzione "se"
+
+***oppure***
+
+***altrimenti***
+altrimenti
+
+- parte di istruzione di condizione -
+
+Vedi l'istruzione "se"
+
+***altrimenti***
+
+***altrimentise***
+altrimentise
+
+- parte di istruzione di condizione -
+
+Vedi l'istruzione "se"
+
+***altrimentise***
+
+***funzione***
+funzione
+
+- istruzione -
+
+La funzione permette di racchiudere un piccolo o grande pezzo di codice di programmazione, che può essere richiamato dal programma, anche più volte.
+Le istruzioni nella funzione devono essere elencate in modo indentato.
+Mostro un esempio in cui creo una funzione di nome provola che contiene l’istruzione per scrivere “ciao” sullo schermo.
+funzione provola():
+	scrivi("ciao")
+Questo programma non esegue nulla, perché il linguaggio riconosce la funzione, con le sue istruzioni, ma non la esegue, perché va chiamata dal resto del programma. Per chiamare una funzione e farle eseguire le sue istruzioni, va scritto il nome della funzione. Le parentesi tonde sono obbligatorie.
+Ecco una chiamata alla funzione che farà eseguire le sue istruzioni.
+funzione provola():
+	scrivi("ciao")
+provola()
+La prima riga crea la funzione provola
+La seconda riga fa scrivere “ciao” sullo schermo, ma solo se verrà eseguita la funzione
+La terza riga chiama la funzione provola, che quindi farà eseguire la scrittura di “ciao” sullo schermo
+Con la funzione si possono usare anche parametri che sono delle variabili che inviamo quando chiamiamo la funzione.
+
+Esempio:
+funzione provola(alfa):
+	scrivi("ciao",alfa)
+beta=domanda("Come ti chiami? ")
+provola(beta)
+
+Risultato:
+Come ti chiami? marco
+ciao marco
+
+Spiegazione:
+La prima riga crea la funzione provola e tra parentesi ho messo il nome di una variabile alfa che si occuperà di ricevere dati dalla chiamata
+La seconda riga scriverà “ciao “ e il nome dell’utente che arriverà dalla chiamata
+La terza riga crea un input per ricevere il nome dell’utente, mettendolo in una variabile beta
+La quarta riga chiama la funzione provola inviando il contenuto della variabile beta.
+Una variabile dentro una funzione, non può essere usata fuori dalla funzione e viceversa.
+
+***funzione***
+
+***apri***
+apri
+
+- istruzione di input/output -
+
+Per scrivere un file di testo sul computer, si usa l'istruzione apri, per aprire il flusso di comunicazione con il file che specificheremo tra parentesi, e poi mettiamo la proprietà scrittura, per dire che il file verrà scritto su hard disk o lettura per dire che il file verrà letto dall'hard disk.
+
+Esempio:
+alfa=apri("esempio.txt",scrittura)
+alfa.memorizza("ciao a tutti")
+alfa.chiudi()
+
+Risultato:
+Nella cartella dove è salvato questo programma, verrà creto il file esempio.txt con all'interno il testo "ciao a tutti"
+
+Spiegazione:
+La prima riga apre un file sul disco, con l’istruzione apri, di nome “esempio.txt” e lo crea in scrittura su disco, grazie all’istruzione scrittura
+La seconda riga, con l’istruzione memorizza, non fa altro che memorizzare dentro il file la frase “ciao a tutti”. Volendo potevamo memorizzare il contenuto di una variabile
+La terza riga, con l’istruzione chiudi(), chiude la comunicazione con il file
+Sullo schermo non apparirà nulla, ma nel vostro hard disk, nella stessa cartella in cui state realizzando il programma, viene generato il file “esempio.txt”
+
+Per legge quel file, si usa la proprietà lettura.
+
+Esempio:
+alfa=apri("esempio.txt",lettura)
+scrivi(alfa.leggi())
+
+Risposta:
+ciao a tutti
+
+Spiegazione:
+La prima riga, con l’istruzione apri, legge il file “esempio.txt” in modalità lettura
+La seconda riga, scrive sullo schermo quello che viene letto dal file, grazie all’istruzione leggi()
+
+***apri***
+
+***chiudi***
+chiudi
+
+- parte di istruzione di input/output -
+
+Vedi l'istruzione "apri"
+
+***chiudi***
+
+***memorizza***
+memorizza
+
+- parte di istruzione di input/output -
+
+Vedi l'istruzione "apri"
+
+***memorizza***
+
+***leggi***
+leggi
+
+- parte di istruzione di input/output -
+
+Vedi l'istruzione "apri"
+
+***leggi***
+
+***lettura***
+lettura
+
+- parte di istruzione di input/output -
+
+Vedi l'istruzione "apri"
+
+***lettura***
+
+***scrittura***
+scrittura
+
+- parte di istruzione di input/output -
+
+Vedi l'istruzione "apri"
+
+***scrittura***
+
+***vero***
+vero
+
+- costante -
+
+Le istruzioni vero e falso sono costanti, che possono essere utili in determinate occasioni. Determinano lo stato di una determinata condizione, appunto, se vera o falsa.
+Di norma, ogni condizione, se non espressamente elaborata, è vera.
+
+Esempio:
+finoache vero:
+	scrivi("ciao")
+
+Risultato:
+ciao
+ciao
+ciao
+(...all'infinito...)
+
+Spiegazione:
+La prima riga inizia un ciclo fino a che la condizione è vera. Ho detto prima che una condizione è sempre vera a meno che non viene elaborato il contrario, quindi questo ciclo sarà infinito.
+Per questo motivo la parola “ciao” verrà scritta all’infinito.
+Per bloccare l’esecuzione del programma bisognerà quindi premere sulla tastiera i tasti CTRL e il tasto C contemporaneamente.
+
+***vero***
+
+***falso***
+falso
+
+- costante -
+
+Le istruzioni vero e falso sono costanti, che possono essere utili in determinate occasioni. Determinano lo stato di una determinata condizione, appunto, se vera o falsa.
+Di norma, ogni condizione, se non espressamente elaborata, è vera.
+
+Esempio:
+finoache vero:
+	scrivi("ciao")
+
+Risultato:
+ciao
+ciao
+ciao
+(...all'infinito...)
+
+Spiegazione:
+La prima riga inizia un ciclo fino a che la condizione è vera. Ho detto prima che una condizione è sempre vera a meno che non viene elaborato il contrario, quindi questo ciclo sarà infinito.
+Per questo motivo la parola “ciao” verrà scritta all’infinito.
+Per bloccare l’esecuzione del programma bisognerà quindi premere sulla tastiera i tasti CTRL e il tasto C contemporaneamente.
+
+***falso***
+
+***ferma***
+ferma
+
+- istruzione -
+
+Quando si eseguono istruzioni cicliche, può essere utile uscire dal ciclo, magari al verificarsi di una condizione. Per uscire dal ciclo si può usare l’istruzione ferma.
+
+Esempio:
+considera x con intervallo(5000):
+	scrivi(x)
+	se x==30:
+		ferma
+Il programma qui sopra, esegue un ciclo per 5000 volte, e fa scrivere ogni numero del ciclo sullo schermo, ma arrivato a 30, con l’istruzione ferma, blocca il ciclo ed esce dal programma.
+ 
+
+L’istruzione passa permette di non far terminare il programma, nonostante non sia stato determinato alcun compito.
+
+Esempio:
+x=domanda("Dimmi il tuo nome ")
+se x=="nik":
+altrimenti:
+	scrivi("non ti conosco")
+
+Se eseguiamo il programma, avremmo un errore, perché mancano le istruzioni da eseguire se il nome che viene scritto è uguale a “nik”. Ma ipotizzando che non sappiamo ancora che istruzioni mettere, ma vogliamo comunque testare il programma, senza avere errori, allora possiamo inserire in quel punto, l’istruzione passa che dice a Lungo di passare all’eventuale istruzione successiva, senza andare in errore.
+
+Esempio:
+x=domanda("Dimmi il tuo nome ")
+se x=="nik":
+	passa
+altrimenti:
+	scrivi("non ti conosco")
+
+***ferma***
+
+***passa***
+passa
+
+- istruzione -
+
+Quando si eseguono istruzioni cicliche, può essere utile uscire dal ciclo, magari al verificarsi di una condizione. Per uscire dal ciclo si può usare l’istruzione ferma.
+
+Esempio:
+considera x con intervallo(5000):
+	scrivi(x)
+	se x==30:
+		ferma
+Il programma qui sopra, esegue un ciclo per 5000 volte, e fa scrivere ogni numero del ciclo sullo schermo, ma arrivato a 30, con l’istruzione ferma, blocca il ciclo ed esce dal programma.
+ 
+
+L’istruzione passa permette di non far terminare il programma, nonostante non sia stato determinato alcun compito.
+
+Esempio:
+x=domanda("Dimmi il tuo nome ")
+se x=="nik":
+altrimenti:
+	scrivi("non ti conosco")
+
+Se eseguiamo il programma, avremmo un errore, perché mancano le istruzioni da eseguire se il nome che viene scritto è uguale a “nik”. Ma ipotizzando che non sappiamo ancora che istruzioni mettere, ma vogliamo comunque testare il programma, senza avere errori, allora possiamo inserire in quel punto, l’istruzione passa che dice a Lungo di passare all’eventuale istruzione successiva, senza andare in errore.
+
+Esempio:
+x=domanda("Dimmi il tuo nome ")
+se x=="nik":
+	passa
+altrimenti:
+	scrivi("non ti conosco")
+***passa***
+
+***min***
+min
+
+- istruzione matematica -
+
+Le istruzioni min() e max() permettono di estrarre rispettivamente il numero più piccolo e il numero più grande, di un elenco di numeri.
+
+Esempio:
+alfa=min(10,32,7,26,90,41)
+beta=max(10,32,7,26,90,41)
+scrivi(alfa)
+scrivi(beta)
+
+La prima riga assegna alla variabile alfa il numero più piccolo fra quelli elencati
+La seconda riga assegna alla variabile beta il numero più grande fra quelli elencati
+La terza e quarta riga scrivono sullo schermo il risultato.
+
+***min***
+
+***max***
+max
+
+- istruzione matematica -
+
+Le istruzioni min() e max() permettono di estrarre rispettivamente il numero più piccolo e il numero più grande, di un elenco di numeri.
+
+Esempio:
+alfa=min(10,32,7,26,90,41)
+beta=max(10,32,7,26,90,41)
+scrivi(alfa)
+scrivi(beta)
+
+La prima riga assegna alla variabile alfa il numero più piccolo fra quelli elencati
+La seconda riga assegna alla variabile beta il numero più grande fra quelli elencati
+La terza e quarta riga scrivono sullo schermo il risultato.
+
+***max***
+
+***positivo***
+positivo
+
+- istruzione matematica -
+
+L’istruzione positivo() permette di scrivere il valore assoluto, positivo, di un numero.
+
+Esempio:
+alfa=-23
+scrivi(alfa)
+scrivi(positivo(alfa))
+
+Risultato:
+-23
+23
+
+***positivo***
+
+***potenza***
+potenza
+
+- istruzione matematica -
+
+L’istruzione potenza() permette di calcolare un valore elevato a potenza, come nell’esempio sotto:
+
+Esempio:
+alfa=3
+beta=2
+scrivi(potenza(alfa,beta))
+
+Risultato:
+9
+
+***potenza***
+
+***pigreco***
+pigreco
+
+- istruzione matematica -
+
+Per avere la numerazione esatta del valore del pi greco, si usa l’istruzione pigreco.
+Esempio di calcolo della circonferenza di un cerchio, che come sappiamo si ottiene moltiplicando il valore del diametro per pi greco:
+
+diametro=10
+circonferenza=diametro*pigreco
+scrivi("La circonfernza di un cerchio con diametro",diametro,"misura",circonferenza)
+
+Risultato:
+La circonferenza di un cerchio con diametro 10 misura 31.41592653589793
+
+***pigreco***
+
+***eulero***
+eulero
+
+- istruzione matematica -
+
+Per usare il numero di Eulero/Nepero si usa l’istruzione eulero oppure nepero.
+
+Esempio:
+scrivi(eulero)
+
+Risultato:
+2.718281828459045
+
+***eulero***
+
+***nepero***
+nepero
+
+- istruzione matematica -
+
+Per usare il numero di Eulero/Nepero si usa l’istruzione eulero oppure nepero.
+
+Esempio:
+scrivi(nepero)
+
+Risultato:
+2.718281828459045
+
+***nepero***
+
+***gradi***
+gradi
+
+- istruzione matematica -
+
+Per convertire un angolo da gradi a radianti si usa l’istruzione radianti, mentre per convertire un angolo da radianti in gradi, si usa gradi.
+
+Esempio:
+scrivi(radianti(30))
+scrivi(gradi(30))
+
+Risultato:
+0.5235987755982988
+1718.8733853924696
+
+***gradi***
+
+***radianti***
+radianti
+
+- istruzione matematica -
+
+Per convertire un angolo da gradi a radianti si usa l’istruzione radianti, mentre per convertire un angolo da radianti in gradi, si usa gradi.
+
+Esempio:
+scrivi(radianti(30))
+scrivi(gradi(30))
+
+Risultato:
+0.5235987755982988
+1718.8733853924696
+
+***radianti***
+
+***seno***
+seno
+
+- istruzione matematica -
+
+Per ottenere il seno, coseno e tangente di un numero, si usano le parole appena evidenziate in grassetto.
+
+Esempio:
+scrivi(seno(30))
+scrivi(coseno(30))
+scrivi(tangente(30))
+
+Risultato:
+-0.9880316240928618
+0.15425144988758405
+-6.405331196646276
+***seno***
+
+***coseno***
+coseno
+
+- istruzione matematica -
+
+Per ottenere il seno, coseno e tangente di un numero, si usano le parole appena evidenziate in grassetto.
+
+Esempio:
+scrivi(seno(30))
+scrivi(coseno(30))
+scrivi(tangente(30))
+
+Risultato:
+-0.9880316240928618
+0.15425144988758405
+-6.405331196646276
+***coseno***
+
+***tangente***
+tangente
+
+- istruzione matematica -
+
+Per ottenere il seno, coseno e tangente di un numero, si usano le parole appena evidenziate in grassetto.
+
+Esempio:
+scrivi(seno(30))
+scrivi(coseno(30))
+scrivi(tangente(30))
+
+Risultato:
+-0.9880316240928618
+0.15425144988758405
+-6.405331196646276
+***tangente***
+
+***logaritmo***
+logaritmo
+
+- istruzione matematica -
+
+Per ottenere il logaritmo di un numero, si usa l’istruzione logaritmo.
+
+Esempio:
+scrivi(logaritmo(30))
+
+Risultato:
+3.4011973816621555
+***logaritmo***
+
+***radicequadrata***
+radicequadrata
+
+- istruzione matematica -
+
+Per ottenere la radice quadrata di un numero si usa l’istruzione radicequadrata.
+
+Esempio:
+scrivi(radicequadrata(25))
+
+Risultato:
+5.0
+***radicequadrata***
+
+***arrotondapereccesso***
+arrotondapereccesso
+
+- istruzione matematica -
+
+Per arrotondare un numero decimale al numero intero per eccesso, si usa l’istruzione arrotondapereccesso, mentre per arrotondare un numero decimale al numero intero per difetto, si usa l’istruzione arrotondaperdifetto.
+
+Esempio:
+scrivi(arrotondapereccesso(7.2))
+scrivi(arrotondaperdifetto(7.8))
+
+Risultato:
+8
+7
+
+***arrotondapereccesso***
+
+***arrotondaperdifetto***
+arrotondaperdifetto
+
+- istruzione matematica -
+
+Per arrotondare un numero decimale al numero intero per eccesso, si usa l’istruzione arrotondapereccesso, mentre per arrotondare un numero decimale al numero intero per difetto, si usa l’istruzione arrotondaperdifetto.
+
+Esempio:
+scrivi(arrotondapereccesso(7.2))
+scrivi(arrotondaperdifetto(7.8))
+
+Risultato:
+8
+7
+
+***arrotondaperdifetto***
+
+***media***
+media
+
+- istruzione matematica -
+
+Per calcolare la media tra diversi numeri di una lista, si usa l’istruzione media.
+
+Esempio:
+alfa=[5,7,6,9,6,9,6]
+scrivi(media(alfa))
+
+Risultato:
+6.857142857142857
+
+***media***
+
+***numeroricorrente***
+numeroricorrente
+
+- istruzione matematica -
+
+Per ottenere il numero più usato in una lista di numeri, si usa l’istruzione numeroricorrente.
+
+Esempio:
+alfa=[5,7,6,9,6,9,6]
+scrivi(numeroricorrente(alfa))
+
+Risultato:
+6
+ 
+Come risultato è stato ottenuto il numero 6, perché è il numero che viene ripetuto più frequentemente nella lista alfa.
+
+***numeroricorrente***
+
+***deviazionestandard***
+deviazionestandard
+
+- istruzione matematica -
+
+Per calcolare la deviazione standard (usata in statistica) di una popolazione di numeri, si usa l’istruzione deviazionestandard.
+
+Esempio:
+alfa=[5,7,6,9,6,9,6]
+scrivi(deviazionestandard(alfa))
+
+Risultato:
+1.5735915849388864
+***deviazionestandard***
+
+***casuale***
+casuale
+
+- istruzione matematica -
+
+Per generare un numero casuale, decimale, tra 0 e 1, su usa l’istruzione casuale.
+
+Esempio:
+scrivi(casuale())
+
+Risultato:
+0.23443532543443
+
+***casuale***
+
+***numerocasuale***
+numerocasuale
+
+- istruzione matematica -
+
+Per generare un numero casuale tra un minimo ed un massimo, si usa l’istruzione numerocasuale.
+
+Esempio:
+scrivi(numerocasuale(1,10))
+ 
+L’esempio sopra genera un numero casuale tra 1 e 10.
+
+***numerocasuale***
+
+***sceltacasuale***
+sceltacasuale
+
+- istruzione matematica -
+
+L’istruzione sceltacasuale permette di eseguire la scelta tra elementi di una lista, o tra caratteri di una stringa.
+
+Esempio:
+alfa=[3,21,7,45,34,12,9]
+beta=["marco","elisa","giulio","marcella","franco"]
+gamma="NiktorTheNat"
+scrivi(sceltacasuale(alfa))
+scrivi(sceltacasuale(beta))
+scrivi(sceltacasuale(gamma))
+
+Risultato:
+9
+marcella
+a
+
+***sceltacasuale***
+
+***mischia***
+mischia
+
+- istruzione matematica -
+
+L’istruzione mischia, permette di mischiare una lista di elementi numerici o striga.
+
+Esempio:
+alfa=[3,21,7,45,34,12,9]
+scrivi(alfa)
+mischia(alfa)
+scrivi(alfa)
+
+Risultato:
+[3,21,7,45,34,12,9]
+[7,3,45,12,9,34,21]
+
+***mischia***
+
+***finestra***
+finestra
+
+- istruzione grafica -
+
+L'istruzione finestra permette di creare una finestra del sistema operativo in uso.
+L'istruzione va assegnata ad una variabile.
+
+Esempio:
+alfa=finestra()
+
+***finestra***
+
+***ciclico***
+ciclico
+
+- istruzione grafica -
+
+L'istruzione ciclico, permette ad una finestra che era stata creata precedentemente, di rimanere visibile in loop.
+
+Esempio:
+alfa=finestra()
+alfa.ciclico()
+
+***ciclico***
+
+***etichetta***
+etichetta
+
+- istruzione grafica -
+
+L'istruzione etichetta, permette di scrivere del testo dentro una finestra.
+L'istruzione va inserita in una variabile, associandola, attraverso le parentesi tonde, ad una determinata finestra. L'istruzione impacchetta, serve poi a renderla visibile sullo schermo.
+
+alfa=finestra()
+x=etichetta(alfa,testo="provola").impacchetta()
+alfa.ciclico()
+
+***etichetta***
